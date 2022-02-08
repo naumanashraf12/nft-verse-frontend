@@ -26,9 +26,9 @@ const AmountPage = () => {
     const url3 = data[0].attributes.images.data[2].attributes.formats.large.url;
     // const url4 = data[0].attributes.images.data[3].attributes.formats.large.url;
     console.log(url);
-    const images1 = { url };
-    const images2 = { url2 };
-    const images3 = { url3 };
+    const images1 = url;
+    const images2 = url2;
+    const images3 = url3;
     // const images4 = `http://localhost:1337${url4}`;
 
     setimgs([images1, images2, images3]);
