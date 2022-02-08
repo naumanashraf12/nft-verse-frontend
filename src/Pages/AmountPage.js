@@ -18,7 +18,7 @@ const AmountPage = () => {
     const {
       data: { data },
     } = await axios.get(
-      "http://localhost:1337/api/advertisements?populate=images"
+      "https://nft-verse1.herokuapp.com/api/advertisements?populate=images"
     );
 
     const url = data[0].attributes.images.data[0].attributes.formats.large.url;
