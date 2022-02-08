@@ -39,9 +39,9 @@ const Upcoming = () => {
     setimgs([images1, images2, images3]);
   };
   const nfts = async () => {
-    const { newdata } = await axios.get(
-      "https://nft-backen.herokuapp.com/data"
-    );
+    const {
+      data: { newdata },
+    } = await axios.get("https://nft-backen.herokuapp.com/data");
 
     var filterd = newdata.filter((val) => {
       const d = new Date(val["saleDate"]);

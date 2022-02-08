@@ -42,7 +42,7 @@ const Home = () => {
       data: { newdata },
     } = await axios.get("https://nft-backen.herokuapp.com/data");
 
-    console.log(newdata);
+   
 
     var filterd = newdata.filter((val) => {
       const d = new Date(val["saleDate"]);
