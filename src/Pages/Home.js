@@ -38,12 +38,12 @@ const Home = () => {
     setimgs([images1, images2, images3]);
   };
   const nfts = async () => {
-    const { data } = await axios.get(
-      "https://collections.rarity.tools/upcoming2"
+    const { newdata } = await axios.get(
+      "https://nft-backen.herokuapp.com/data"
     );
 
-    var filterd = data.filter((val) => {
-      const d = new Date(val["Sale Date"]);
+    var filterd = newdata.filter((val) => {
+      const d = new Date(val["saleDate"]);
       if (!isNaN(d.getTime())) {
         // d.valueOf() could also work
         // date is not valid
@@ -51,8 +51,8 @@ const Home = () => {
       }
     });
     var sorteddata = filterd.sort(function (a, b) {
-      var c = new Date(a["Sale Date"]);
-      var d = new Date(b["Sale Date"]);
+      var c = new Date(a["saleDate"]);
+      var d = new Date(b["saleDate"]);
       return c - d;
     });
 
@@ -271,7 +271,7 @@ const Home = () => {
                                   margin: "0 0 0 10px",
                                 }}
                               >
-                                {val["Short Description"]}
+                                {val["description"]}
                               </p>
                               <p
                                 style={{
@@ -291,7 +291,7 @@ const Home = () => {
                               }}
                             >
                               Sale Date:
-                              {new Date(val["Sale Date"]).toLocaleString(
+                              {new Date(val["saleDate"]).toLocaleString(
                                 "en-US",
                                 { timeZone: "Asia/Jakarta" }
                               )}
@@ -303,7 +303,7 @@ const Home = () => {
                               }}
                             >
                               Listed Date:
-                              {new Date(val["Listed Date"]).toLocaleString(
+                              {new Date(val["presaleDate"]).toLocaleString(
                                 "en-US",
                                 { timeZone: "Asia/Jakarta" }
                               )}
