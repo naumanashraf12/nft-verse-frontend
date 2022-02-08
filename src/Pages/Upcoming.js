@@ -35,7 +35,7 @@ const Upcoming = () => {
     const images2 = url2;
     const images3 = url3;
     // const images4 = `http://localhost:1337${url4}`;
-    setloading(true);
+    setloading(false);
     setimgs([images1, images2, images3]);
   };
   const nfts = async () => {

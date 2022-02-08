@@ -38,9 +38,11 @@ const Home = () => {
     setimgs([images1, images2, images3]);
   };
   const nfts = async () => {
-    const { newdata } = await axios.get(
-      "https://nft-backen.herokuapp.com/data"
-    );
+    const {
+      data: { newdata },
+    } = await axios.get("https://nft-backen.herokuapp.com/data");
+
+    console.log(newdata);
 
     var filterd = newdata.filter((val) => {
       const d = new Date(val["saleDate"]);
@@ -55,6 +57,7 @@ const Home = () => {
       var d = new Date(b["saleDate"]);
       return c - d;
     });
+    console.log(sorteddata);
 
     setcoming([sorteddata[0], sorteddata[1], sorteddata[2], sorteddata[3]]);
     console.log(coming);
